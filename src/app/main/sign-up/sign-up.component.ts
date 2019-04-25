@@ -10,6 +10,9 @@ export class SignUpComponent implements OnInit {
 
 @ViewChild('signUpForm') SignUpForm:NgForm;
  
+  pwdPattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
+  firstnamelastnamepattern="^[a-zA-Z ]*$";
+  aadharPattern="^[0-9].{11,11}$"
   constructor() { }
 
   ngOnInit() {

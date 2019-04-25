@@ -81,3 +81,10 @@ body {
     font-size: 7px;
     position: absolute;
 }
+
+input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+.error-msg{
+    color: red;
+}

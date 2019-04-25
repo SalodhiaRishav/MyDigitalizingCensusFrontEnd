@@ -4,27 +4,70 @@
 		<p class="lead">It's free and hardly takes more than 30 seconds.</p>
         <div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-user"></i></span>
-				<input type="text" class="form-control" ngModel name="firstname" placeholder="First Name" required>
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <p style="color:red">*</p> 
+        <input type="text" class="form-control" ngModel name="firstname" [pattern]="firstnamelastnamepattern" placeholder="First Name" required #firstname="ngModel">         
+      <div *ngIf="!firstname.valid && firstname.touched">
+        <p  class="small error-msg text-center" *ngIf="firstname.errors.required">
+          required
+      </p>
+      <p  class="small error-msg text-center" *ngIf="firstname.errors.pattern">
+          invalid
+      </p>
+    </div>        
 			</div>
         </div>
+
+
         <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-              <input type="text" class="form-control" ngModel name="lastname" placeholder="Last Name" required>
+              <p style="color:red">*</p>
+              <input type="text" class="form-control" ngModel name="lastname" [pattern]="firstnamelastnamepattern" placeholder="Last Name" required #lastname="ngModel">
+              <div *ngIf="!lastname.valid && lastname.touched">
+                  <p class="small error-msg text-center" *ngIf="lastname.errors.required">
+                    required
+                </p>
+                <p class="small error-msg text-center" *ngIf="lastname.errors.pattern">
+                    invalid
+                </p>
+              </div> 
             </div>
               </div>
         <div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
-				<input type="email" class="form-control" ngModel name="email" placeholder="Email Address" required email>
-			</div>
+        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+        <p style="color:red">*</p>
+        <input type="email" class="form-control" ngModel name="email" placeholder="Email Address" required email #email="ngModel">
+        <div *ngIf="!email.valid && email.touched">
+            <p  class="small error-msg text-center" *ngIf="email.errors.required">
+              required
+          </p>
+          <p  class="small error-msg text-center" *ngIf="email.errors.email">
+              invalid
+          </p>
+        </div> 
+      <!-- <p class="small help-block text-center" *ngIf="!email.valid && email.touched">Please enter a valid email</p> -->
+        
+      <!-- <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span> -->
+      </div>
         </div>
+
 		<div class="form-group">
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-				<input type="text" class="form-control" ngModel name="password" placeholder="Password" required>
-			</div>
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+        <p style="color:red">*</p>
+        <input type="text" class="form-control" ngModel name="password" [pattern]="pwdPattern" placeholder="Password" required #password="ngModel">
+        <div *ngIf="!password.valid && password.touched">
+            <p  class="small error-msg text-center" *ngIf="password.errors.required">
+              required
+          </p>
+          <p  class="small error-msg text-center" *ngIf="password.errors.pattern">
+              invalid
+          </p>
+          
+        </div> 
+		</div>
         </div>
 		<!-- <div class="form-group">
 			<div class="input-group">
@@ -39,18 +82,37 @@
         <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
-              <input type="text" class="form-control" ngModel name="profileimagelink" placeholder="ProfileImageLink" required>
+              <p style="color:red">*</p>
+              <input type="text" class="form-control" ngModel name="profileimagelink" placeholder="ProfileImageLink" required #profileimagelink="ngModel">
+              <div *ngIf="!profileimagelink.valid && profileimagelink.touched">
+                  <p class="small error-msg text-center" *ngIf="profileimagelink.errors.required">
+                    required
+                </p>
+                
+
+              </div> 
             </div>
               </div>
               <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                    <input type="text" class="form-control" ngModel name="aadharnumber" placeholder="Aadhar Number" required>
+                    <p style="color:red">*</p>
+                    <input type="text" class="form-control" ngModel name="aadharnumber" [pattern]="aadharPattern" placeholder="Aadhar Number" required #aadhar="ngModel">
+                    <div *ngIf="!aadhar.valid && aadhar.touched">
+                        <p  class="small error-msg text-center" *ngIf="aadhar.errors.required">
+                          required
+                      </p>
+                      <p  class="small error-msg text-center" *ngIf="aadhar.errors.pattern">
+                          invalid
+                      </p>
+                    </div> 
                   </div>
                     </div>
                     <div class="form-group">
+                        <!-- <button type="submit" class="btn btn-primary btn-block btn-lg"
+                        [disabled]="!signUpForm.valid">Sign Up</button> -->
                         <button type="submit" class="btn btn-primary btn-block btn-lg"
-                        [disabled]="!signUpForm.valid">Sign Up</button>
+                        >Sign Up</button>
                     </div>
 		<p class="small text-center">Already have an account?<a routerLink="/login">Login Here</a>.</p>
     </form>
