@@ -17,8 +17,6 @@
     </div>        
 			</div>
         </div>
-
-
         <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
@@ -109,10 +107,9 @@
                   </div>
                     </div>
                     <div class="form-group">
-                        <!-- <button type="submit" class="btn btn-primary btn-block btn-lg"
-                        [disabled]="!signUpForm.valid">Sign Up</button> -->
                         <button type="submit" class="btn btn-primary btn-block btn-lg"
-                        >Sign Up</button>
+                        [disabled]="!signUpForm.valid">Sign Up</button>
+                        
                     </div>
 		<p class="small text-center">Already have an account?<a routerLink="/login">Login Here</a>.</p>
     </form>
