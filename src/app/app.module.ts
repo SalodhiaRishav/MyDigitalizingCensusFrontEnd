@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {FormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,12 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignUpComponent } from './Main/sign-up/sign-up.component';
 import { LoginComponent } from './Main/login/login.component';
 import { UserComponent } from './Main/user/user.component';
-import { CensusComponent } from './Main/census/census.component';
-import { HouseMemberComponent } from './Main/Census/house-member/house-member.component';
-import { HouseComponent } from './Main/Census/house/house.component';
 import { HomeHeaderComponent } from './Header/home-header/home-header.component';
-import { LoginedHeaderComponent } from './Header/logined-header/logined-header.component';
-import { VoluteerComponent } from './Main/voluteer/voluteer.component';
 import { ApproverComponent } from './Main/User/approver/approver.component';
 import { DeclinedUserComponent } from './Main/User/Approver/declined-user/declined-user.component';
 import { AcceptedUserComponent } from './Main/User/Approver/accepted-user/accepted-user.component';
@@ -32,12 +28,7 @@ import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-heade
     SignUpComponent,
     LoginComponent,
     UserComponent,
-    CensusComponent,
-    HouseMemberComponent,
-    HouseComponent,
     HomeHeaderComponent,
-    LoginedHeaderComponent,
-    VoluteerComponent,
     ApproverComponent,
     DeclinedUserComponent,
     AcceptedUserComponent,
@@ -48,7 +39,8 @@ import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-heade
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

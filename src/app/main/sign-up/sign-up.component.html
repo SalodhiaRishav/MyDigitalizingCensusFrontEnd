@@ -1,3 +1,58 @@
-<p>
-  sign-up works!
-</p>
+<div class="signup-form">	
+    <form (ngSubmit)="onSubmit()" #signUpForm="ngForm">
+		<h2>Create Account</h2>
+		<p class="lead">It's free and hardly takes more than 30 seconds.</p>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="text" class="form-control" ngModel name="firstname" placeholder="First Name" required>
+			</div>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control" ngModel name="lastname" placeholder="Last Name" required>
+            </div>
+              </div>
+        <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+				<input type="email" class="form-control" ngModel name="email" placeholder="Email Address" required email>
+			</div>
+        </div>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<input type="text" class="form-control" ngModel name="password" placeholder="Password" required>
+			</div>
+        </div>
+		<!-- <div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon">
+					<i class="fa fa-lock"></i>
+					<i class="fa fa-check"></i>
+				</span>
+				<input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
+			</div>
+        </div>        
+		 -->
+        <div class="form-group">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-user"></i></span>
+              <input type="text" class="form-control" ngModel name="profileimagelink" placeholder="ProfileImageLink" required>
+            </div>
+              </div>
+              <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" ngModel name="aadharnumber" placeholder="Aadhar Number" required>
+                  </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block btn-lg"
+                        [disabled]="!signUpForm.valid">Sign Up</button>
+                    </div>
+		<p class="small text-center">Already have an account?<a routerLink="/login">Login Here</a>.</p>
+    </form>
+
+</div>
