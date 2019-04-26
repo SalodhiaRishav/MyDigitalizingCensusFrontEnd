@@ -18,6 +18,8 @@ import { PendingUserComponent } from './Main/User/Approver/pending-user/pending-
 import { VolunteerComponent } from './Main/User/volunteer/volunteer.component';
 import { AprroverHeaderComponent } from './Header/LoginedHeader/aprrover-header/aprrover-header.component';
 import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-header/volunteer-header.component';
+import { UniqueEmailValidatorDirective } from './customdirectives/unique-email-validator.directive';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-heade
     PendingUserComponent,
     VolunteerComponent,
     AprroverHeaderComponent,
-    VolunteerHeaderComponent
+    VolunteerHeaderComponent,
+    UniqueEmailValidatorDirective
   ],
   imports: [
     HttpClientModule,
@@ -43,7 +46,7 @@ import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-heade
     AppRoutingModule,
     FormsModule
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
