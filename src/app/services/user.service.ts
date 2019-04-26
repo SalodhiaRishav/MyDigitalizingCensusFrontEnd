@@ -19,12 +19,27 @@ export class UserService {
     })
   }
 
-  
+  PostUser(user:User)
+  {
+    return this.http.post(this.url,user);
+  }
 
   isThisEmailAllowed(email:string)
   {
     let foundeduser:User=this.UserList.find((user:User)=>{
       return user.email === email;
+    })
+    if(foundeduser)
+    {
+      return false;
+    }
+    return true;
+  }
+
+  isThisAdhaarAllowed(adhaarNumber:string)
+  {
+    let foundeduser:User=this.UserList.find((user:User)=>{
+      return user.aadharNumber === adhaarNumber;
     })
     if(foundeduser)
     {

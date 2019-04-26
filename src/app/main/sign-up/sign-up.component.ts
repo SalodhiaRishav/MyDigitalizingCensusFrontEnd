@@ -28,20 +28,28 @@ export class SignUpComponent implements OnInit {
     
   }
 
-  isEmailAvailable(email:string)
-  {
-    let foundeduser:User=this.UserList.find((user:User)=>{
-      return user.email === email;
-    })
-    if(foundeduser)
-    {
-      return false;
-    }
-    return true;
-  }
-
+ 
   onSubmit(){
-    console.log(this.isEmailAvailable(this.SignUpForm.value.email));
+    let user : User=new User()
+    user.firstName=this.SignUpForm.value.firstname;
+    user.lastName=this.SignUpForm.value.lastname;
+    user.email=this.SignUpForm.value.email;
+    user.aadharNumber=this.SignUpForm.value.aadharnumber;
+    user.password=this.SignUpForm.value.password;
+    user.profileImage=this.SignUpForm.value.profileimagelink;
+    
+
+  this.userService.PostUser(user).subscribe((response : any)=>{
+    if(response.success)
+    {
+      alert(response.message);
+    }else
+    {
+      alert(response.message);
+
+    }
+    
+  })
   }
 
   

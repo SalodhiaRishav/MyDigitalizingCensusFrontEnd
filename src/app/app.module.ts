@@ -20,6 +20,7 @@ import { AprroverHeaderComponent } from './Header/LoginedHeader/aprrover-header/
 import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-header/volunteer-header.component';
 import { UniqueEmailValidatorDirective } from './customdirectives/unique-email-validator.directive';
 import { UserService } from './services/user.service';
+import { UniqueAdhaarValidatorDirective } from './customdirectives/unique-adhaar-validator.directive';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { UserService } from './services/user.service';
     VolunteerComponent,
     AprroverHeaderComponent,
     VolunteerHeaderComponent,
-    UniqueEmailValidatorDirective
+    UniqueEmailValidatorDirective,
+    UniqueAdhaarValidatorDirective
   ],
   imports: [
     HttpClientModule,

@@ -98,11 +98,14 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>
                     <p style="color:red">*</p>
-                    <input type="text" class="form-control" ngModel name="aadharnumber" [pattern]="aadharPattern" placeholder="Aadhar Number" required #aadhar="ngModel">
+                    <input type="text" class="form-control" ngModel name="aadharnumber" [pattern]="aadharPattern" placeholder="Aadhar Number" appUniqueAdhaarValidator required #aadhar="ngModel">
                     <div *ngIf="!aadhar.valid && aadhar.touched">
                         <p  class="small error-msg text-center" *ngIf="aadhar.errors.required">
                           required
                       </p>
+                      <p  class="small error-msg text-center" *ngIf="aadhar.errors.appUniqueAdhaarValidator">
+                        adhaar already exists
+                    </p>
                       <p  class="small error-msg text-center" *ngIf="aadhar.errors.pattern">
                           invalid
                       </p>

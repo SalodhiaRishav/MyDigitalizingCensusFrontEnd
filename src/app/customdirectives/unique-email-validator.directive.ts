@@ -2,7 +2,6 @@ import { Directive } from '@angular/core';
 import { AsyncValidator,ValidationErrors, NG_ASYNC_VALIDATORS } from '@angular/forms';
 import {Observable} from 'rxjs';
 import { UserService } from '../services/user.service';
-import { reject } from 'q';
 
 @Directive({
   selector: '[appUniqueEmail]',
