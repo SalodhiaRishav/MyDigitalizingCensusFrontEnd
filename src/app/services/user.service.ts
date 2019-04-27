@@ -8,6 +8,7 @@ import { LoginUser } from '../models/LoginUser.model';
 export class UserService {
 
   public UserListFetchedEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
+  public userLoggedInEvent:EventEmitter<string>=new EventEmitter<string>();
   public UserData : any;
   public UserList:User[];
   url:string='http://localhost:1305/api/user';
@@ -20,6 +21,10 @@ export class UserService {
     })
   }
 
+  GetUsers()
+  {
+    return this.http.get(this.url);
+  }
   PostUser(user:User)
   {
     return this.http.post(this.url,user);
@@ -33,18 +38,7 @@ export class UserService {
 
   isThisEmailAllowed(email:string)
   {
-    // if(this.UserList!=null)
-    // {
-    //   let foundeduser:User=this.UserList.find((user:User)=>{
-    //     return user.email === email;
-    //   })
-    //   if(foundeduser)
-    //   {
-    //     return false;
-    //   }
-    //   return true;
-    // }else
-    // {
+   
       if(this.UserList==null)
       {
         return true;

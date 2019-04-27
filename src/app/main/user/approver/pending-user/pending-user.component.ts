@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
+import{UserService} from './../../../../services/user.service';
+import{ApproverRequestService} from './../../../../services/approverequest.service';
+
+import{User} from './../../../../models/User.model';
+
 
 @Component({
   selector: 'app-pending-user',
@@ -7,9 +13,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PendingUserComponent implements OnInit {
 
-  constructor() { }
+  UserPendingList:User[];
+  constructor(private userService : UserService,
+    private approverRequestService :ApproverRequestService) { }
 
   ngOnInit() {
+    this.approverRequestService.GetPendingUserList();
   }
+  
 
 }

@@ -1,7 +1,7 @@
 export class ResponseModel{
     public message:string;  
     public success:boolean;
-    public data:object;
+    public data:any;
 constructor(){}
 
 }

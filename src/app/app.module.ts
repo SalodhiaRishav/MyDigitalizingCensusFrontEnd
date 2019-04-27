@@ -21,6 +21,7 @@ import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-heade
 import { UniqueEmailValidatorDirective } from './customdirectives/unique-email-validator.directive';
 import { UserService } from './services/user.service';
 import { UniqueAdhaarValidatorDirective } from './customdirectives/unique-adhaar-validator.directive';
+import { ApproverRequestService } from './services/approverequest.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { UniqueAdhaarValidatorDirective } from './customdirectives/unique-adhaar
     AppRoutingModule,
     FormsModule
   ],
-  providers: [UserService],
+  providers: [UserService,ApproverRequestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,8 @@
 <header>
-    <app-home-header></app-home-header>
+    <div *ngIf="currentHeader==='home'">
+        <app-home-header></app-home-header>
+    </div>
+    <div *ngIf="currentHeader==='approver'">
+        <app-aprrover-header></app-aprrover-header>
+    </div>
 </header>
