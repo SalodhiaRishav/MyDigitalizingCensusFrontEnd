@@ -2,6 +2,7 @@ import { Component, OnInit ,ViewChild} from '@angular/core';
 import{NgForm} from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import {User} from '../../models/User.model'
+import {ResponseModel} from '../../models/Response.model';
 
 @Component({
   selector: 'app-sign-up',
@@ -39,7 +40,7 @@ export class SignUpComponent implements OnInit {
     user.profileImage=this.SignUpForm.value.profileimagelink;
     
 
-  this.userService.PostUser(user).subscribe((response : any)=>{
+  this.userService.PostUser(user).subscribe((response : ResponseModel)=>{
     if(response.success)
     {
       alert(response.message);

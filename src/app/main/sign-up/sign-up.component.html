@@ -37,6 +37,7 @@
         <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
         <p style="color:red">*</p>
         <input type="email" class="form-control" ngModel name="email" placeholder="Email Address" required email appUniqueEmail #email="ngModel">
+        <div *ngIf="email.errors">
         <div *ngIf="!email.valid && email.touched">
             <p  class="small error-msg text-center" *ngIf="email.errors.required">
               required
@@ -48,6 +49,8 @@
               invalid
           </p>
         </div> 
+        </div>
+
       <!-- <p class="small help-block text-center" *ngIf="!email.valid && email.touched">Please enter a valid email</p> -->
         
       <!-- <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span> -->

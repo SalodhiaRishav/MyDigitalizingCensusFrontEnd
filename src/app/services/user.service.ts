@@ -1,6 +1,7 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {User} from '../models/User.model';
+import { LoginUser } from '../models/LoginUser.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -24,20 +25,51 @@ export class UserService {
     return this.http.post(this.url,user);
   }
 
+  PostLoginUser(loginUser:LoginUser)
+  {
+    let loginurl='http://localhost:1305/api/login';
+    return this.http.post(loginurl,loginUser);
+  }
+
   isThisEmailAllowed(email:string)
   {
+    // if(this.UserList!=null)
+    // {
+    //   let foundeduser:User=this.UserList.find((user:User)=>{
+    //     return user.email === email;
+    //   })
+    //   if(foundeduser)
+    //   {
+    //     return false;
+    //   }
+    //   return true;
+    // }else
+    // {
+      if(this.UserList==null)
+      {
+        return true;
+      }
+
     let foundeduser:User=this.UserList.find((user:User)=>{
-      return user.email === email;
-    })
-    if(foundeduser)
-    {
-      return false;
-    }
-    return true;
+          return user.email === email;
+        })
+        if(foundeduser)
+        {
+          return false;
+        }
+        return true;
+    
+
+    
   }
 
   isThisAdhaarAllowed(adhaarNumber:string)
   {
+
+     if(this.UserList==null)
+     {
+       return true;
+     }
     let foundeduser:User=this.UserList.find((user:User)=>{
       return user.aadharNumber === adhaarNumber;
     })
@@ -46,6 +78,7 @@ export class UserService {
       return false;
     }
     return true;
+  
   }
 
 
