@@ -15,6 +15,12 @@ export class HeaderComponent implements OnInit {
     this.userService.userLoggedInEvent.subscribe((data)=>{
       this.currentHeader=data;
     })
+    this.userService.userLoggedOutEvent.subscribe((data)=>{
+      if(data)
+      {
+        this.currentHeader='home';
+      }
+    })
   }
 
 }

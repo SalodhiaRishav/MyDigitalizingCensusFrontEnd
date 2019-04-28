@@ -1,1 +1,22 @@
-works
+       <div *ngIf="!isUserListEmpty">
+          <ul class="list-group container"  *ngFor="let user of UserPendingList">
+              <li class="row border-bottom mx-3">              
+            <div class="col-md-3 my-4">
+                <img src="./../../../../../assets/profilepic.png" class="rounded-circle img-responsive"  alt="profilepic" width="100" height="100" />    
+            </div>
+            <div class="col-md-3 my-4">
+                <span style="font-size: 13px">{{user.data.firstName}}</span>
+            </div>          
+            <div class="col-md-3 my-4">
+                <button class="btn btn-primary" (click)="onAccept(user.data.id)">Accept</button>
+            </div>
+            <div class="col-md-3 my-4">
+                <button class="btn btn-danger" (click)="onDecline(user.data.id)">Decline</button>
+            </div>
+          
+          </li>        
+        </ul>
+        </div>
+        <div *ngIf="isUserListEmpty">
+            No User request
+            </div>

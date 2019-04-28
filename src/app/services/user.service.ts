@@ -9,6 +9,7 @@ export class UserService {
 
   public UserListFetchedEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
   public userLoggedInEvent:EventEmitter<string>=new EventEmitter<string>();
+  public userLoggedOutEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
   public UserData : any;
   public UserList:User[];
   url:string='http://localhost:1305/api/user';

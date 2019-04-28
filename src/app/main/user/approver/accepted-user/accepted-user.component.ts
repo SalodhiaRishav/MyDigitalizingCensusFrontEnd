@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscriber } from 'rxjs';
+import{UserService} from './../../../../services/user.service';
+import{ApproverRequestService} from './../../../../services/approverequest.service';
+
+import{User} from './../../../../models/User.model';
 
 @Component({
   selector: 'app-accepted-user',
@@ -7,9 +12,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AcceptedUserComponent implements OnInit {
 
-  constructor() { }
+ 
+  UserDeclinedList:User[];
+  constructor(private userService : UserService,
+    private approverRequestService :ApproverRequestService) { }
 
   ngOnInit() {
+    this.approverRequestService.GetApprovedUserList();
   }
 
 }

@@ -45,6 +45,7 @@ constructor(private userService : UserService) { }
         if(loginedUser.isApprover)
         {
           this.userService.userLoggedInEvent.emit('approver')
+          
         }
         else
         {
