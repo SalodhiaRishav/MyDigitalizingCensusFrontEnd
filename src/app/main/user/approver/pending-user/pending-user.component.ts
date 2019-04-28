@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
 import{UserService} from './../../../../services/user.service';
 import{ApproverRequestService} from './../../../../services/approverequest.service';
 
@@ -38,9 +37,6 @@ export class PendingUserComponent implements OnInit {
         this.UserPendingList=data;
         this.isUserListEmpty=false;
       }
-      
-     
-      
     })
   }
 

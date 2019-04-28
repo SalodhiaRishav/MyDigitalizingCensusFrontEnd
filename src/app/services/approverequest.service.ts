@@ -15,26 +15,42 @@ private userstatuslist :any=null;
     
   }
 
-  GetDeclinedUserList()
+   
+  GetDeclinedUserList(): Promise<User[]|null>
   {
-    let loginurl='http://localhost:1305/api/usercurrentrequeststatus';
   
+    return new Promise((resolve,reject)=>{
+      let loginurl='http://localhost:1305/api/usercurrentrequeststatus';
     this.http.get(loginurl).subscribe((data:any)=>{
-
-      if(data.Success)
+    
+        if(data.success)
       {
+        this.userstatuslist=data.data;
         let userList:User[]=[];
-        console.log(data.Data);
-        var pendinguserList=data.Data.filter((status:any)=>status.UserRequestType===0)
+       // console.log(data.data);
+        var pendinguserList=data.data.filter((status:any)=>status.userRequestType===0)
+       if(pendinguserList.length==0)
+       {
+         resolve(null);
+       }
         for(let i=0;i<pendinguserList.length;++i)
         {
-          let userurl='http://localhost:1305/api/user/'+pendinguserList[i].UserId;
-          this.http.get(userurl).subscribe((data : User)=>{
+          let userurl='http://localhost:1305/api/user/'+pendinguserList[i].userId;
+         this.http.get(userurl).subscribe((data : User)=>{
            userList.push(data);
+           
          })
         }
-        console.log(userList)
+     //   this.isPendingListFetched.emit(userList);
+  
+    console.log(userList)
+     resolve(userList);
+        
+        
       }
+
+      })
+      
     })
 
     
@@ -96,30 +112,48 @@ private userstatuslist :any=null;
     
   }
 
-  GetApprovedUserList()
-  {
-    let loginurl='http://localhost:1305/api/usercurrentrequeststatus';
-  
-    this.http.get(loginurl).subscribe((data:any)=>{
 
-      if(data.Success)
+  GetApprovedUserList(): Promise<User[]|null>
+  {
+  
+    return new Promise((resolve,reject)=>{
+      let loginurl='http://localhost:1305/api/usercurrentrequeststatus';
+    this.http.get(loginurl).subscribe((data:any)=>{
+    
+        if(data.success)
       {
+        this.userstatuslist=data.data;
         let userList:User[]=[];
-        console.log(data.Data);
-        var pendinguserList=data.Data.filter((status:any)=>status.UserRequestType===2)
-        for(let i=0;i<pendinguserList.length;++i)
+       // console.log(data.data);
+        var acceptedUserList=data.data.filter((status:any)=>status.userRequestType===2)
+       if(acceptedUserList.length==0)
+       {
+         resolve(null);
+       }
+        for(let i=0;i<acceptedUserList.length;++i)
         {
-          let userurl='http://localhost:1305/api/user/'+pendinguserList[i].UserId;
+          let userurl='http://localhost:1305/api/user/'+acceptedUserList[i].userId;
          this.http.get(userurl).subscribe((data : User)=>{
            userList.push(data);
          })
         }
-
-       return userList;
+     //   this.isPendingListFetched.emit(userList);
+  
+    
+     resolve(userList);
+        
+        
       }
+
+      })
+      
     })
 
+    
+    
   }
+
+  
 
 
 

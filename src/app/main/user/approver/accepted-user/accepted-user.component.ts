@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscriber } from 'rxjs';
 import{UserService} from './../../../../services/user.service';
 import{ApproverRequestService} from './../../../../services/approverequest.service';
 
@@ -13,12 +12,28 @@ import{User} from './../../../../models/User.model';
 export class AcceptedUserComponent implements OnInit {
 
  
-  UserDeclinedList:User[];
+  isUserListEmpty:boolean=true;
+  UserAcceptedList:User[];
   constructor(private userService : UserService,
     private approverRequestService :ApproverRequestService) { }
 
   ngOnInit() {
-    this.approverRequestService.GetApprovedUserList();
+ this.getAcceptedList();
+  }
+  getAcceptedList()
+  {
+    this.approverRequestService.GetApprovedUserList().then((data)=>{
+     if(data==null)
+     {
+      this.isUserListEmpty=true;
+     }
+     else
+      {
+        console.log(data);
+        this.UserAcceptedList=data;
+        this.isUserListEmpty=false;
+      }
+    })
   }
 
 }
