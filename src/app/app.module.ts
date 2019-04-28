@@ -24,6 +24,9 @@ import { UniqueEmailValidatorDirective } from './customdirectives/unique-email-v
 import { UserService } from './services/user.service';
 import { UniqueAdhaarValidatorDirective } from './customdirectives/unique-adhaar-validator.directive';
 import { ApproverRequestService } from './services/approverequest.service';
+import { HouseService } from './services/house.service';
+
+
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import { ApproverRequestService } from './services/approverequest.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [UserService,ApproverRequestService],
+  providers: [UserService,
+    ApproverRequestService,
+    HouseService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

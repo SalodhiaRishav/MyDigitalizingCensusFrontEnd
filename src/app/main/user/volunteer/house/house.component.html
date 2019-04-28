@@ -1,3 +1,128 @@
-<p>
-  house works!
-</p>
+<div class="signup-form">	
+  <form (ngSubmit)="onSubmit()" #houseRegisterForm="ngForm">
+   <h2>Register House Details</h2>
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-user"></i></span>
+      <p style="color:red">*</p> 
+      <input type="text" class="form-control" ngModel name="BuildingNumber" placeholder="Building Number" required #BuildingNumber="ngModel">         
+    <div *ngIf="!BuildingNumber.valid && BuildingNumber.touched">
+      <p  class="small error-msg text-center" *ngIf="BuildingNumber.errors.required">
+        required
+    </p>
+  </div>        
+    </div>
+      </div>
+      <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <p style="color:red">*</p>
+            <input type="text" class="form-control" ngModel name="StreetName" placeholder="Street Name" required #StreetName="ngModel">
+            <div *ngIf="!StreetName.valid && StreetName.touched">
+                <p class="small error-msg text-center" *ngIf="StreetName.errors.required">
+                  required
+              </p>
+              
+            </div> 
+          </div>
+            </div>
+      <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+      <p style="color:red">*</p>
+      <input type="text" class="form-control" ngModel name="City" placeholder="City" required #City="ngModel">
+      <div *ngIf="City.errors">
+      <div *ngIf="!City.valid && City.touched">
+          <p  class="small error-msg text-center" *ngIf="City.errors.required">
+            required
+        </p>     
+      </div> 
+      </div>
+
+      </div>
+      </div>
+
+  <div class="form-group">
+    <div class="input-group">
+      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+      <p style="color:red">*</p>
+      <input type="text" class="form-control" ngModel name="State" placeholder="State" required #State="ngModel">
+      <div *ngIf="!State.valid && State.touched">
+          <p  class="small error-msg text-center" *ngIf="State.errors.required">
+            required
+        </p>
+       
+        
+      </div> 
+  </div>
+  </div>
+      <div class="form-group">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+            <p style="color:red">*</p>
+            <input type="text" class="form-control" ngModel name="HeadName" placeholder="Head Name" required #HeadName="ngModel">
+            <div *ngIf="!HeadName.valid && HeadName.touched">
+                <p class="small error-msg text-center" *ngIf="HeadName.errors.required">
+                  required
+              </p>
+              
+
+            </div> 
+          </div>
+            </div>
+            <!-- <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  OwnershipStatus
+                </button>
+                <select name="OwnershipStatus" ngModel class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <option class="dropdown-item" value="Rented">Rented</option>
+                  <option class="dropdown-item" value="Rented">Owned</option>
+                 
+                </select>
+              </div> -->
+            <!-- <select name="OwnershipStatus" class="form-control" ngModel >
+              <option value="Rented">Rented</option>
+              <option value="Owned">Owned</option>
+            </select> -->
+
+         <label for="ownerShipStatus">OwnershipStatus</label>
+                <select class="custom-select d-block w-100" id="ownerShipStatus" name="OwnershipStatus" #ownerShipStatus="ngModel" required [(ngModel)]="defaultValue">
+                   
+                    <option value="Owned">Owned</option>
+                    <option value="Rented">Rented</option>
+
+                </select>
+                <div class="invalid-feedback">
+                    <div *ngIf="!ownerShipStatus.valid && ownerShipStatus.touched">
+                        <p class="small error-msg text-center" *ngIf="ownerShipStatus.errors.required">
+                          required
+                      </p>
+                      
+        
+                    </div> 
+                </div>
+             
+
+            <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                  <p style="color:red">*</p>
+                  <input type="number" class="form-control" ngModel name="NumberOfRooms" placeholder="Number of Rooms" required #NumberOfRooms="ngModel">
+                  <div *ngIf="!NumberOfRooms.valid && NumberOfRooms.touched">
+                      <p class="small error-msg text-center" *ngIf="NumberOfRooms.errors.required">
+                        required
+                    </p>
+                    
+      
+                  </div> 
+                </div>
+                  </div>
+          
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-primary btn-block btn-lg"
+                      [disabled]="!houseRegisterForm.valid">Register House</button>
+                      
+                  </div> 
+  </form>
+
+</div>
