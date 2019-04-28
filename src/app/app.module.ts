@@ -16,6 +16,8 @@ import { DeclinedUserComponent } from './Main/User/Approver/declined-user/declin
 import { AcceptedUserComponent } from './Main/User/Approver/accepted-user/accepted-user.component';
 import { PendingUserComponent } from './Main/User/Approver/pending-user/pending-user.component';
 import { VolunteerComponent } from './Main/User/volunteer/volunteer.component';
+import { HouseComponent } from './Main/User/volunteer/house/house.component';
+import { HouseMemberComponent } from './Main/User/volunteer/house-member/house-member.component';
 import { AprroverHeaderComponent } from './Header/LoginedHeader/aprrover-header/aprrover-header.component';
 import { VolunteerHeaderComponent } from './Header/LoginedHeader/volunteer-header/volunteer-header.component';
 import { UniqueEmailValidatorDirective } from './customdirectives/unique-email-validator.directive';
@@ -41,7 +43,9 @@ import { ApproverRequestService } from './services/approverequest.service';
     AprroverHeaderComponent,
     VolunteerHeaderComponent,
     UniqueEmailValidatorDirective,
-    UniqueAdhaarValidatorDirective
+    UniqueAdhaarValidatorDirective,
+    HouseComponent,
+    HouseMemberComponent
   ],
   imports: [
     HttpClientModule,

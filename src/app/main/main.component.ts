@@ -15,11 +15,15 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.userService.userLoggedInEvent.subscribe((data)=>{
+    
       if(data==='home')
       {
         this.router.navigate(['/login']);
       }
-      else
+      else if(data==='volunteer')
+      {
+        this.router.navigate(['/house']);
+      }else if(data==='approver')
       {
         this.router.navigate(['/pending']);
       }
