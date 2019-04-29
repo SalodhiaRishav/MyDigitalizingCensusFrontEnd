@@ -41,6 +41,8 @@ constructor(private userService : UserService) { }
         loginedUser.isApprover=data.data.isApprover;
       //  console.log(UserRequestStatusType[data.data.userRequestStatus];);
         
+      sessionStorage['VolunteerId']=loginedUser.id;
+      
         
         if(loginedUser.isApprover)
         {

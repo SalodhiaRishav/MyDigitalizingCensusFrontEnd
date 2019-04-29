@@ -1,3 +1,124 @@
-<p>
-  house-member works!
-</p>
+<div class="signup-form">
+  <form (ngSubmit)="onSubmit()" #houseMemberRegisterForm="ngForm">
+    <h2>Register House Member Details</h2>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <p style="color:red">*</p>
+        <input type="text" class="form-control" ngModel name="FirstName" placeholder="First Name" required
+          #FirstName="ngModel">
+        <div *ngIf="!FirstName.valid && FirstName.touched">
+          <p class="small error-msg text-center" *ngIf="FirstName.errors.required">
+            required
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <p style="color:red">*</p>
+        <input type="text" class="form-control" ngModel name="LastName" placeholder="Last Name" required
+          #LastName="ngModel">
+        <div *ngIf="!LastName.valid && LastName.touched">
+          <p class="small error-msg text-center" *ngIf="LastName.errors.required">
+            required
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+          <span class="input-group-addon"><i class="fa fa-user"></i></span>
+          <p style="color:red">*</p>
+          <input type="date" class="form-control" ngModel name="DateOfBirth" placeholder="Date Of Birth" required
+            #DateOfBirth="ngModel">
+          <div *ngIf="!LastName.valid && LastName.touched">
+            <p class="small error-msg text-center" *ngIf="DateOfBirth.errors.required">
+              required
+            </p>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <p style="color:red">*</p>
+        <input type="text" class="form-control" ngModel name="HouseId" placeholder="House Census Number" required
+          #HouseId="ngModel">
+        <div *ngIf="!HouseId.valid && HouseId.touched">
+          <p class="small error-msg text-center" *ngIf="HouseId.errors.required">
+            required
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <label for="RelationToHead">RelationToHead</label>
+    <select class="drpdown d-block w-100" id="RelationToHead" name="RelationToHead" #RelationToHead="ngModel"
+      required [(ngModel)]="DefaultValues.RelationToHead">
+      <option *ngFor="let key of RelationToHeadKeys" [value]="key">{{key}}</option>
+
+    </select>
+
+    <label for="Gender">Gender</label>
+    <select class=" drpdown d-block w-100" id="Gender" name="Gender" #Gender="ngModel" required
+      [(ngModel)]="DefaultValues.Gender">
+      <option *ngFor="let key of GenderKeys" [value]="key">{{key}}</option>
+
+    </select>
+
+    <label for="MaritalStatus">MaritalStatus</label>
+    <select class=" drpdown d-block w-100" id="MaritalStatus" name="MaritalStatus" (change)="onMaritalStatusChange()" #MaritalStatus="ngModel"
+    required [(ngModel)]="DefaultValues.MaritalStatus">
+    
+        <option *ngFor="let key of MaritalStatusKeys" [value]="key">{{key}}</option>
+      </select>
+
+
+<div *ngIf="!IsUnmarriedSelected">
+
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <p style="color:red">*</p>
+        <input type="number" class="form-control" ngModel name="AgeAtMarriage" placeholder="Age At Marriage" required
+          #AgeAtMarriage="ngModel">
+        <div *ngIf="!AgeAtMarriage.valid && AgeAtMarriage.touched">
+          <p class="small error-msg text-center" *ngIf="AgeAtMarriage.errors.required">
+            required
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <label for="OccupationStatus">Occupation Status</label>
+    <select class=" drpdown d-block w-100" id="OccupationStatus" name="OccupationStatus"
+    (change)="onOccupationStatusChange()"
+      #OccupationStatus="ngModel" required [(ngModel)]="DefaultValues.OccupationStatus">
+      <option *ngFor="let key of OccupationStatusKeys" [value]="key">{{key}}</option>
+    </select>
+  
+    <div *ngIf="!IsUnEmployedSelected">
+
+    <label for="OccupationNature">Occupation Nature</label>
+    <select class=" drpdown  d-block w-100" id="OccupationNature" name="OccupationNature"
+      #OccupationNature="ngModel" required [(ngModel)]="DefaultValues.OccupationNature">
+      <option *ngFor="let key of OccupationNatureKeys" [value]="key">{{key}}</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block btn-lg"
+        [disabled]="!houseMemberRegisterForm.valid">Register House Member</button>
+
+    </div>
+  </form>
+
+</div>
