@@ -13,33 +13,40 @@ export class MainComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.userService.userLoggedInEvent.subscribe((data)=>{
+    this.userService.userLoggedInEvent.subscribe((data:string)=>{
     
+      console.log(data);
       
       if(data==='approver')
       {
+       
         this.router.navigate(['/pending']);
       }
       else if(data==='volunteer')
       {
-        this.userService.loginedUserEvent.subscribe((data:LoginedUser)=>{
-         if(data.userRequestStatus===2)
-         {
-          this.router.navigate(['/house']);
-         }
-         else if(data.userRequestStatus===0)
-         {
-          this.router.navigate(['/declinedrequest']);
-         }
-         else
-         {
-          this.router.navigate(['/pendingrequest']);
-           
-         }
-        })
+       
         
-      }else if(data==='home')
+       
+          this.router.navigate(['/pendingrequest']);           
+         
+      
+        
+      }else if(data==='pendingvolunteerrequest')
       {
+        this.userService.loginedUserEvent.subscribe((dataaa:LoginedUser)=>{
+          console.log(dataaa);
+          if(dataaa.userRequestStatus===1)
+          {
+           this.router.navigate(['/pendingrequest']);
+          }
+          else if(dataaa.userRequestStatus===0)
+          {
+           this.router.navigate(['/declinedrequest']);
+          }})
+      }
+      else if(data==='home')
+      {
+        console.log('home')
         this.router.navigate(['/login']);
       }
     

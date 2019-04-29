@@ -6,6 +6,9 @@
         <app-aprrover-header></app-aprrover-header>
     </div>
     <div *ngIf="currentHeader==='volunteer'">
-            <app-volunteer-header></app-volunteer-header>
-        </div>
+        <app-volunteer-header></app-volunteer-header>
+    </div>
+    <div *ngIf="currentHeader==='pendingvolunteerrequest'">
+        <app-pendingdeclinedrequestheader></app-pendingdeclinedrequestheader>
+    </div>
 </header>

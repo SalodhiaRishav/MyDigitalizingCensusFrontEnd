@@ -51,7 +51,17 @@ constructor(private userService : UserService) { }
         }
         else
         {
-          this.userService.userLoggedInEvent.emit('volunteer')
+          if(loginedUser.userRequestStatus==0||loginedUser.userRequestStatus==1)
+          {
+            this.userService.userLoggedInEvent.emit('pendingvolunteerrequest')
+
+          }
+          else
+          {
+            this.userService.userLoggedInEvent.emit('volunteer')
+
+          }
+         
         }
         this.userService.loginedUserEvent.emit(loginedUser);
 
