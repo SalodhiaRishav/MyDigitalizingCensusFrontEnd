@@ -12,6 +12,9 @@ export class UserService {
   public userLoggedInEvent:EventEmitter<string>=new EventEmitter<string>();
   public userLoggedOutEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
   public loginedUserEvent:EventEmitter<LoginedUser>=new EventEmitter<LoginedUser>();
+  public isUserLoggedInAsVolunteer:boolean=false;
+  public isUserLoggedInAsApprover:boolean=false;
+
 
   public UserData : any;
   public UserList:User[];

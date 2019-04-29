@@ -15,7 +15,9 @@ export class AprroverHeaderComponent implements OnInit {
   onLogOut()
   {
     this.userService.userLoggedOutEvent.emit(true);
-    alert('You are going to logout');
+     alert('You are going to logout');
+    this.userService.isUserLoggedInAsApprover=false;
+    this.userService.isUserLoggedInAsVolunteer=false;
         this.router.navigate(['/login']);
        
         

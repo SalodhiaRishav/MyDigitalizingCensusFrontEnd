@@ -18,6 +18,8 @@ export class VolunteerHeaderComponent implements OnInit {
   {
     this.userService.userLoggedOutEvent.emit(true);
     alert('You are going to logout');
+    this.userService.isUserLoggedInAsApprover=false;
+    this.userService.isUserLoggedInAsVolunteer=false;
         this.router.navigate(['/login']);
   }
 

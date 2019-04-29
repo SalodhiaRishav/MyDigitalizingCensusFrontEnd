@@ -31,6 +31,8 @@ import { PendingrequestComponent } from './main/user/pendingrequest/pendingreque
 import { DeclinedrequestComponent } from './main/user/declinedrequest/declinedrequest.component';
 import { PendingdeclinedrequestheaderComponent } from './header/pendingdeclinedrequestheader/pendingdeclinedrequestheader.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { VolunteerAuthGuardService } from './services/volunteer.auth-guard.service';
+import { ApproverAuthGuardService } from './services/approver.auth-guard.service';
 
 
 
@@ -71,7 +73,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
   providers: [UserService,
     ApproverRequestService,
     HouseService,
-    HouseMemberService
+    HouseMemberService,
+    VolunteerAuthGuardService,
+    ApproverAuthGuardService
   ],
   bootstrap: [AppComponent]
 })

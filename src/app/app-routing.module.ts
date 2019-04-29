@@ -12,6 +12,8 @@ import { DeclinedrequestComponent } from 'src/app/main/user/declinedrequest/decl
 import { NotfoundComponent } from 'src/app/notfound/notfound.component';
 import { ApproverComponent } from './Main/User/approver/approver.component';
 import { VolunteerComponent } from './Main/User/volunteer/volunteer.component';
+import { VolunteerAuthGuardService } from './services/volunteer.auth-guard.service';
+import { ApproverAuthGuardService } from './services/approver.auth-guard.service';
 
 
 
@@ -20,17 +22,17 @@ const routes: Routes = [
   { path: 'signup', component:SignUpComponent  },
   {path:'login',component:LoginComponent},
   {path:'approver',
-    
+  canActivate:[ApproverAuthGuardService],
   children:[
     {path:'pending',component:PendingUserComponent},
   {path:'declined',component:DeclinedUserComponent},
   {path:'approved',component:AcceptedUserComponent},
   ]},
   {path:'volunteer',
-    
+   canActivate:[VolunteerAuthGuardService],
   children:[
     {path:'house',component:HouseComponent},
-    {path:'housemember',component:HouseMemberComponent, pathMatch:'full',},
+    {path:'housemember',component:HouseMemberComponent},
   ]},
   
   {path:'pendingrequest',component:PendingrequestComponent},
