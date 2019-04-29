@@ -27,6 +27,8 @@ import { ApproverRequestService } from './services/approverequest.service';
 import { HouseService } from './services/house.service';
 import { HouseMemberService } from './services/housemember.service';
 import { HousecensusexistsValidatorDirective } from './customdirectives/housecensusexists-validator.directive';
+import { PendingrequestComponent } from './main/user/pendingrequest/pendingrequest.component';
+import { DeclinedrequestComponent } from './main/user/declinedrequest/declinedrequest.component';
 
 
 
@@ -52,7 +54,9 @@ import { HousecensusexistsValidatorDirective } from './customdirectives/housecen
     UniqueAdhaarValidatorDirective,
     HouseComponent,
     HouseMemberComponent,
-    HousecensusexistsValidatorDirective
+    HousecensusexistsValidatorDirective,
+    PendingrequestComponent,
+    DeclinedrequestComponent
   ],
   imports: [
     HttpClientModule,

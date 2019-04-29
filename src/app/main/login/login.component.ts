@@ -53,6 +53,8 @@ constructor(private userService : UserService) { }
         {
           this.userService.userLoggedInEvent.emit('volunteer')
         }
+        this.userService.loginedUserEvent.emit(loginedUser);
+
        
         
       }

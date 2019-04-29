@@ -2,6 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {User} from '../models/User.model';
 import { LoginUser } from '../models/LoginUser.model';
+import { LoginedUser } from '../models/LoginedUser.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,6 +11,8 @@ export class UserService {
   public UserListFetchedEvent : EventEmitter<boolean> = new EventEmitter<boolean>();
   public userLoggedInEvent:EventEmitter<string>=new EventEmitter<string>();
   public userLoggedOutEvent:EventEmitter<boolean>=new EventEmitter<boolean>();
+  public loginedUserEvent:EventEmitter<LoginedUser>=new EventEmitter<LoginedUser>();
+
   public UserData : any;
   public UserList:User[];
   url:string='http://localhost:1305/api/user';
