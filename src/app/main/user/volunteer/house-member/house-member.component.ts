@@ -94,8 +94,15 @@ export class HouseMemberComponent implements OnInit {
   }
   
   houseMember.VolunteerId=sessionStorage['VolunteerId'];
-  this.houseMemberService.addHouseMember(houseMember).subscribe((data)=>{
-    console.log(data);
+  this.houseMemberService.addHouseMember(houseMember).subscribe((data:any)=>{
+    if(data.success)
+    {
+      alert(data.message);
+      this.HouseMemberRegisterForm.reset();
+    }else
+    {
+      alert(data.message);
+    }
   })
   }
 

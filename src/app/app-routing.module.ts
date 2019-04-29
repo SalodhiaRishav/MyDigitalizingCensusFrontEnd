@@ -9,6 +9,9 @@ import { HouseComponent } from './Main/User/volunteer/house/house.component';
 import { HouseMemberComponent } from './Main/User/volunteer/house-member/house-member.component';
 import { PendingrequestComponent } from 'src/app/main/user/pendingrequest/pendingrequest.component';
 import { DeclinedrequestComponent } from 'src/app/main/user/declinedrequest/declinedrequest.component';
+import { NotfoundComponent } from 'src/app/notfound/notfound.component';
+import { ApproverComponent } from './Main/User/approver/approver.component';
+import { VolunteerComponent } from './Main/User/volunteer/volunteer.component';
 
 
 
@@ -16,13 +19,24 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'signup', component:SignUpComponent  },
   {path:'login',component:LoginComponent},
-  {path:'pending',component:PendingUserComponent},
+  {path:'approver',
+    
+  children:[
+    {path:'pending',component:PendingUserComponent},
   {path:'declined',component:DeclinedUserComponent},
   {path:'approved',component:AcceptedUserComponent},
-  {path:'house',component:HouseComponent},
-  {path:'housemember',component:HouseMemberComponent},
+  ]},
+  {path:'volunteer',
+    
+  children:[
+    {path:'house',component:HouseComponent},
+    {path:'housemember',component:HouseMemberComponent, pathMatch:'full',},
+  ]},
+  
   {path:'pendingrequest',component:PendingrequestComponent},
   {path:'declinedrequest',component:DeclinedrequestComponent},
+  {path:'notfound',component:NotfoundComponent},
+  {path:'**',redirectTo:'/notfound'}
 
 
 

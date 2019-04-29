@@ -14,20 +14,18 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.userService.userLoggedInEvent.subscribe((data:string)=>{
-    
-      console.log(data);
       
       if(data==='approver')
       {
        
-        this.router.navigate(['/pending']);
+        this.router.navigate(['/approver/pending']);
       }
       else if(data==='volunteer')
       {
        
         
        
-          this.router.navigate(['/pendingrequest']);           
+          this.router.navigate(['/volunteer/house']);           
          
       
         
@@ -46,7 +44,7 @@ export class MainComponent implements OnInit {
       }
       else if(data==='home')
       {
-        console.log('home')
+     
         this.router.navigate(['/login']);
       }
     

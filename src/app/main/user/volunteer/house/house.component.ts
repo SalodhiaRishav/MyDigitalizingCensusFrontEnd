@@ -25,8 +25,10 @@ export class HouseComponent implements OnInit {
      {
        let message:string;
        message=data.message+'\n your house census id is : '+ data.data.id;
+       
 
       alert(message);
+      this.HouseRegisterForm.reset();
      }
     })
   }

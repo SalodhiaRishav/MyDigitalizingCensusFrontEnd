@@ -30,6 +30,7 @@ import { HousecensusexistsValidatorDirective } from './customdirectives/housecen
 import { PendingrequestComponent } from './main/user/pendingrequest/pendingrequest.component';
 import { DeclinedrequestComponent } from './main/user/declinedrequest/declinedrequest.component';
 import { PendingdeclinedrequestheaderComponent } from './header/pendingdeclinedrequestheader/pendingdeclinedrequestheader.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
@@ -58,7 +59,8 @@ import { PendingdeclinedrequestheaderComponent } from './header/pendingdeclinedr
     HousecensusexistsValidatorDirective,
     PendingrequestComponent,
     DeclinedrequestComponent,
-    PendingdeclinedrequestheaderComponent
+    PendingdeclinedrequestheaderComponent,
+    NotfoundComponent
   ],
   imports: [
     HttpClientModule,
