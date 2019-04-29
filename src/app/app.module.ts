@@ -26,6 +26,7 @@ import { UniqueAdhaarValidatorDirective } from './customdirectives/unique-adhaar
 import { ApproverRequestService } from './services/approverequest.service';
 import { HouseService } from './services/house.service';
 import { HouseMemberService } from './services/housemember.service';
+import { HousecensusexistsValidatorDirective } from './customdirectives/housecensusexists-validator.directive';
 
 
 
@@ -50,7 +51,8 @@ import { HouseMemberService } from './services/housemember.service';
     UniqueEmailValidatorDirective,
     UniqueAdhaarValidatorDirective,
     HouseComponent,
-    HouseMemberComponent
+    HouseMemberComponent,
+    HousecensusexistsValidatorDirective
   ],
   imports: [
     HttpClientModule,
