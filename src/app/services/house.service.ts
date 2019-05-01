@@ -22,5 +22,10 @@ import { LoginUser } from '../models/LoginUser.model';
       return this.http.get(url);
     }
    
+    GetAllHouse()
+    {
+      let url:string='http://localhost:1305/api/house';
+      return this.http.get(url);
+    }
 
   }

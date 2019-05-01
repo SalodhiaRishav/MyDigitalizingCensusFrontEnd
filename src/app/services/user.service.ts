@@ -32,9 +32,9 @@ export class UserService {
   {
     return this.http.get(this.url);
   }
-  PostUser(user:User)
+  PostUser(user: User, image: string, name: string)
   {
-    return this.http.post(this.url,user);
+    return this.http.post(this.url,{user,image,name});
   }
 
   PostLoginUser(loginUser:LoginUser)

@@ -29,7 +29,6 @@ export class AcceptedUserComponent implements OnInit {
      }
      else
       {
-        console.log(data);
         this.UserAcceptedList=data;
         this.isUserListEmpty=false;
       }

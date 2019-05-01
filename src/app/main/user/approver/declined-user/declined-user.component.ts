@@ -23,7 +23,7 @@ export class DeclinedUserComponent implements OnInit {
   getDeclinedList()
   {
     this.approverRequestService.GetDeclinedUserList().then((data)=>{
-      console.log(data);
+     
      if(data===null)
      {
       this.isUserListEmpty=true;

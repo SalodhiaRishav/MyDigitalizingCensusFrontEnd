@@ -83,11 +83,11 @@
 			</div>
         </div>        
 		 -->
-        <div class="form-group">
+        <!-- <div class="form-group">
             <div class="input-group">
               <span class="input-group-addon"><i class="fa fa-user"></i></span>
               <p style="color:red">*</p>
-              <input type="text" class="form-control" ngModel name="profileimagelink" placeholder="ProfileImageLink" required #profileimagelink="ngModel">
+              <input type="text" class="form-control" ngModel   placeholder="ProfileImageLink" required #profileimagelink="ngModel">
               <div *ngIf="!profileimagelink.valid && profileimagelink.touched">
                   <p class="small error-msg text-center" *ngIf="profileimagelink.errors.required">
                     required
@@ -96,7 +96,24 @@
 
               </div> 
             </div>
-              </div>
+              </div> -->
+            
+<div class="form-group row">
+<div class="col" style="display:inline">
+<input type="file" 
+accept="image/jpeg"
+#image
+(change)="onImageUpload($event)"
+placeholder="Profile Image"
+style="display:inline"
+required>
+</div>
+<div class="col" style="display:inline" > 
+<img *ngIf = "!display" src={{imageUrl}} style="width:100px;height:100px">
+<img *ngIf="display" src={{base64textString}} style="width:100px;height:100px;display: inline">
+</div>  
+</div>
+
               <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon"><i class="fa fa-user"></i></span>

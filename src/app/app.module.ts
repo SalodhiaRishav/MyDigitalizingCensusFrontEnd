@@ -33,6 +33,7 @@ import { PendingdeclinedrequestheaderComponent } from './header/pendingdeclinedr
 import { NotfoundComponent } from './notfound/notfound.component';
 import { VolunteerAuthGuardService } from './services/volunteer.auth-guard.service';
 import { ApproverAuthGuardService } from './services/approver.auth-guard.service';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 
@@ -62,7 +63,8 @@ import { ApproverAuthGuardService } from './services/approver.auth-guard.service
     PendingrequestComponent,
     DeclinedrequestComponent,
     PendingdeclinedrequestheaderComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    LandingpageComponent
   ],
   imports: [
     HttpClientModule,

@@ -13,8 +13,12 @@ import { Router } from '@angular/router';
 export class SignUpComponent implements OnInit {
 
 @ViewChild('signUpForm') SignUpForm:NgForm;
- 
+ imageUrl = '/assets/image/defaultimage.png'; 
  public UserList : User[];
+ public fileToUpload:File=null;
+ public binaryString:string;
+ public base64textString  ;
+ display:boolean=false;
   pwdPattern = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$";
   firstnamelastnamepattern="^[a-zA-Z ]*$";
   aadharPattern="^[0-9].{11,11}$"
@@ -31,7 +35,19 @@ export class SignUpComponent implements OnInit {
     
   }
 
- 
+
+  onImageUpload(evt: any) {
+  this.display = true;
+  this.fileToUpload = evt.target.files[0];
+  const reader = new FileReader();
+  reader.onload = (event: any) => {
+  this.binaryString = btoa(event.target.result);
+  this.base64textString = 'data:image/jpeg;base64,' + btoa(event.target.result); 
+  };
+  reader.readAsBinaryString(this.fileToUpload);
+  } 
+   
+  
   onSubmit(){
     let user : User=new User()
     user.firstName=this.SignUpForm.value.firstname;
@@ -39,22 +55,35 @@ export class SignUpComponent implements OnInit {
     user.email=this.SignUpForm.value.email;
     user.aadharNumber=this.SignUpForm.value.aadharnumber;
     user.password=this.SignUpForm.value.password;
-    user.profileImage=this.SignUpForm.value.profileimagelink;
-    
-
-  this.userService.PostUser(user).subscribe((response : ResponseModel)=>{
-    if(response.success)
+    if(this.fileToUpload===null)
     {
-      alert(response.message);
-    this.router.navigate(['/login']);
-
-    }else
-    {
-      alert(response.message);
-
+      alert('Please select a profile pic');
     }
-    
-  })
+    else
+    {
+      if(this.fileToUpload.type==='image/jpeg'||this.fileToUpload.type==='image/png')
+      {
+        this.userService.PostUser(user,this.binaryString, this.fileToUpload.name).subscribe((response : ResponseModel)=>{
+          if(response.success)
+          {
+            alert(response.message);
+          this.router.navigate(['/login']);
+      
+          }else
+          {
+            alert(response.message);
+          }
+          
+        })
+      }
+      else
+      {
+        alert('please select a png or jpg type image...');
+      }
+      
+    }
+
+  
   }
 
   

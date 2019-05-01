@@ -13,7 +13,9 @@ export class VolunteerAuthGuardService implements CanActivate {
       return true;
     }
     else {
-      this.router.navigate(['/login']);
+     
+        this.router.navigate(['/login']);
+     
     }
   }
 

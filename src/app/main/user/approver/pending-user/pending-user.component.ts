@@ -36,6 +36,7 @@ export class PendingUserComponent implements OnInit {
       {
         this.UserPendingList=data;
         this.isUserListEmpty=false;
+       
       }
     })
   }
