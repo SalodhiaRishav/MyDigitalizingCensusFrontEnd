@@ -12,12 +12,13 @@ export class UniqueEmailValidatorDirective implements AsyncValidator {
 
   validate(control: import("@angular/forms").AbstractControl): Promise<ValidationErrors|null> | Observable<ValidationErrors | null> {
   return new Promise((resolve,reject)=>{
-  console.log('hi i am in directive');
     if(this.userService.isThisEmailAllowed(control.value)){      
       resolve(null);
     }
     else
     {
+     
+
       resolve({'appUniqueEmail':true})
 
     }

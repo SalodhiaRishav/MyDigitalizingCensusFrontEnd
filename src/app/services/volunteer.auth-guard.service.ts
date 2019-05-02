@@ -13,6 +13,7 @@ export class VolunteerAuthGuardService implements CanActivate {
       return true;
     }
     else {
+    alert('You are not allowed to visit this page...\nYou are redirecting back to Login page')
      
         this.router.navigate(['/login']);
      

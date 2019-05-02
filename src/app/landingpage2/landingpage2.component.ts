@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { Label } from 'ng2-charts';
 import { HouseService } from '../services/house.service';
 
@@ -13,18 +12,18 @@ export class Landingpage2Component implements OnInit {
   public isDataFetched: boolean = false;
   constructor(private houseService: HouseService) { }
 
-  public StateArray: Label[] = new Array("Andaman & Nicobar", "Andhra Pradesh", "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
+  public StateArray: Label[] = new Array('Andaman & Nicobar', 'Andhra Pradesh', "Arunachal Pradesh", "Assam", "Bihar", "Chandigarh", "Chhattisgarh", "Dadra & Nagar Haveli", "Daman & Diu", "Delhi", "Goa", "Gujarat", "Haryana", "Himachal Pradesh", "Jammu & Kashmir", "Jharkhand", "Karnataka", "Kerala", "Lakshadweep", "Madhya Pradesh", "Maharashtra", "Manipur", "Meghalaya", "Mizoram", "Nagaland", "Orissa", "Pondicherry", "Punjab", "Rajasthan", "Sikkim", "Tamil Nadu", "Tripura", "Uttar Pradesh", "Uttaranchal", "West Bengal");
   ngOnInit() {
-    this.getPopulationCount().then((dataArray:number[])=>{
+    this.getPopulationCount().then((dataArray: number[]) => {
       console.log(dataArray);
       this.barChartLabels = this.StateArray;
-    this.barChartType = 'bar';
-    this.barChartLegend = true;
+      this.barChartType = 'bar';
+      this.barChartLegend = true;
 
-    this.barChartData =[
-      { data: dataArray, label: 'Series A' },
-    ];
-    this.isDataFetched=true;
+      this.barChartData = [
+        { data: dataArray, label: 'Series A' },
+      ];
+      this.isDataFetched = true;
     })
 
   }
@@ -66,9 +65,9 @@ export class Landingpage2Component implements OnInit {
       })
   }
 
- 
 
- 
+
+
 
 
 

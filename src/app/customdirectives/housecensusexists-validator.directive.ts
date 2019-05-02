@@ -28,16 +28,7 @@ export class HousecensusexistsValidatorDirective implements AsyncValidator {
 
         }
       })
-      
-      // if(this.houseService.isThisHouseNumberAllowed(control.value)){  
-      //   console.log('here')    
-      //   resolve(null);
-      // }
-      // else
-      // {
-      //   console.log('there');
-      //   resolve({'appHousecensusexistsValidator':true})
-      // }
+     
     })
   }
 

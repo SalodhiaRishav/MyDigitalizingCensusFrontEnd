@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
       
       if(data==='approver')
       {
+      
        
         this.router.navigate(['/approver/pending']);
       }
@@ -32,7 +33,8 @@ export class MainComponent implements OnInit {
       }else if(data==='pendingvolunteerrequest')
       {
         this.userService.loginedUserEvent.subscribe((dataaa:LoginedUser)=>{
-          console.log(dataaa);
+      
+         
           if(dataaa.userRequestStatus===1)
           {
            this.router.navigate(['/pendingrequest']);

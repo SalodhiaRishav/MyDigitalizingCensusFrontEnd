@@ -60,7 +60,7 @@ constructor(private userService : UserService) { }
             this.userService.isUserLoggedInAsVolunteer=false;
             this.userService.isUserLoggedInAsApprover=false;
             this.userService.userLoggedInEvent.emit('pendingvolunteerrequest')
-           
+            this.userService.loginedUserEvent.emit(loginedUser);
 
           }
           else
@@ -68,19 +68,16 @@ constructor(private userService : UserService) { }
             this.userService.isUserLoggedInAsVolunteer=true;
             this.userService.isUserLoggedInAsApprover=false;
             this.userService.userLoggedInEvent.emit('volunteer')
-
+            this.userService.loginedUserEvent.emit(loginedUser);
           }
          
         }
-        this.userService.loginedUserEvent.emit(loginedUser);
+       
 
        
         
       }
-      else
-      {
-
-      }
+    
     alert(data.message);
     })
   }

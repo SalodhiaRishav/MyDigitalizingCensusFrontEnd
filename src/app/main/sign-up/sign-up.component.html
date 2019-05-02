@@ -51,17 +51,14 @@
         </div> 
         </div>
 
-      <!-- <p class="small help-block text-center" *ngIf="!email.valid && email.touched">Please enter a valid email</p> -->
-        
-      <!-- <span class="help-block" *ngIf="!email.valid && email.touched">Please enter a valid email</span> -->
-      </div>
+        </div>
         </div>
 
 		<div class="form-group">
 			<div class="input-group">
         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
         <p style="color:red">*</p>
-        <input type="text" class="form-control" ngModel name="password" [pattern]="pwdPattern" placeholder="Password" required #password="ngModel">
+        <input type="password" class="form-control" ngModel name="password" [pattern]="pwdPattern" placeholder="Password" required #password="ngModel">
         <div *ngIf="!password.valid && password.touched">
             <p  class="small error-msg text-center" *ngIf="password.errors.required">
               required
@@ -73,30 +70,6 @@
         </div> 
 		</div>
         </div>
-		<!-- <div class="form-group">
-			<div class="input-group">
-				<span class="input-group-addon">
-					<i class="fa fa-lock"></i>
-					<i class="fa fa-check"></i>
-				</span>
-				<input type="text" class="form-control" name="confirm_password" placeholder="Confirm Password" required="required">
-			</div>
-        </div>        
-		 -->
-        <!-- <div class="form-group">
-            <div class="input-group">
-              <span class="input-group-addon"><i class="fa fa-user"></i></span>
-              <p style="color:red">*</p>
-              <input type="text" class="form-control" ngModel   placeholder="ProfileImageLink" required #profileimagelink="ngModel">
-              <div *ngIf="!profileimagelink.valid && profileimagelink.touched">
-                  <p class="small error-msg text-center" *ngIf="profileimagelink.errors.required">
-                    required
-                </p>
-                
-
-              </div> 
-            </div>
-              </div> -->
             
 <div class="form-group row">
 <div class="col" style="display:inline">
