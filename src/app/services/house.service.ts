@@ -15,6 +15,11 @@ import { LoginUser } from '../models/LoginUser.model';
         return this.http.post(url,house);
     }
 
+    getPopulationByState(state:string)
+    {
+      let url:string='http://localhost:1305/api/house?state='+state;
+      return this.http.get(url);
+    }
 
     getHouseById(houseNumber:number)
     {
