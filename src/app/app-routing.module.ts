@@ -14,12 +14,12 @@ import { ApproverComponent } from './Main/User/approver/approver.component';
 import { VolunteerComponent } from './Main/User/volunteer/volunteer.component';
 import { VolunteerAuthGuardService } from './services/volunteer.auth-guard.service';
 import { ApproverAuthGuardService } from './services/approver.auth-guard.service';
-import { LandingpageComponent } from './landingpage/landingpage.component';
+import{Landingpage2Component} from './landingpage2/landingpage2.component';
 
 
 
 const routes: Routes = [
-  { path: '', component:LandingpageComponent, pathMatch: 'full' },
+  { path: '', component:Landingpage2Component, pathMatch: 'full' },
   // { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'signup', component:SignUpComponent  },
   {path:'login',component:LoginComponent},

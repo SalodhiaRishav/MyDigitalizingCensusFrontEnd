@@ -33,8 +33,8 @@ import { PendingdeclinedrequestheaderComponent } from './header/pendingdeclinedr
 import { NotfoundComponent } from './notfound/notfound.component';
 import { VolunteerAuthGuardService } from './services/volunteer.auth-guard.service';
 import { ApproverAuthGuardService } from './services/approver.auth-guard.service';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-
+import { Landingpage2Component } from './landingpage2/landingpage2.component';
+import { ChartsModule } from 'ng2-charts';
 
 
 
@@ -64,9 +64,10 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     DeclinedrequestComponent,
     PendingdeclinedrequestheaderComponent,
     NotfoundComponent,
-    LandingpageComponent
+    Landingpage2Component
   ],
   imports: [
+    ChartsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,

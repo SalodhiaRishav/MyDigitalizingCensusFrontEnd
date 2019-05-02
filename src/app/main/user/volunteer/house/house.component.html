@@ -42,20 +42,6 @@
       </div>
       </div>
 
-  <!-- <div class="form-group">
-    <div class="input-group">
-      <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-      <p style="color:red">*</p>
-      <input type="text" class="form-control" ngModel name="State" placeholder="State" required #State="ngModel">
-      <div *ngIf="!State.valid && State.touched">
-          <p  class="small error-msg text-center" *ngIf="State.errors.required">
-            required
-        </p>
-       
-        
-      </div> 
-  </div> 
-</div>-->
 
   <label for="State">State</label>
   <select class="drpdown d-block w-100" id="State" name="State" #State="ngModel"
@@ -80,20 +66,7 @@
             </div> 
           </div>
             </div>
-            <!-- <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  OwnershipStatus
-                </button>
-                <select name="OwnershipStatus" ngModel class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <option class="dropdown-item" value="Rented">Rented</option>
-                  <option class="dropdown-item" value="Rented">Owned</option>
-                 
-                </select>
-              </div> -->
-            <!-- <select name="OwnershipStatus" class="form-control" ngModel >
-              <option value="Rented">Rented</option>
-              <option value="Owned">Owned</option>
-            </select> -->
+          
 
          <label for="ownerShipStatus">OwnershipStatus</label>
                 <select class="custom-select d-block w-100" id="ownerShipStatus" name="OwnershipStatus" #ownerShipStatus="ngModel" required [(ngModel)]="defaultValue">
